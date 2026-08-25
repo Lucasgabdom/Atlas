@@ -1,11 +1,9 @@
-﻿public class Impressoras
+﻿public class Impressoras : Ativo
 {
-    public string Modelo { get; set; }
     public string Tipo { get; set; }
     public string Conectividade { get; set; }
-    public Impressoras(string modelo, string tipo, string conectividade)
+    public Impressoras(int idAtivo, string patrimonio, string fabricante, string modelo, string situacao, string tipo, string conectividade) : base(idAtivo, patrimonio, fabricante, modelo, situacao)
     {
-        Modelo = modelo;
         Tipo = tipo;
         Conectividade = conectividade;
     }

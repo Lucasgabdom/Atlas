@@ -7,8 +7,20 @@ public class CadastroNotebook
 
     public void CadastrarNotebook()
     {
-        Console.WriteLine("Digite o modelo do notebook:");
+        Console.WriteLine("ID do Ativo: ");
+        int idNotebook = int.Parse(Console.ReadLine()!);
+
+        Console.WriteLine("Patrimônio: ");
+        string patrimonioNotebook = Console.ReadLine()!;
+
+        Console.WriteLine("Fabricante: ");
+        string fabricanteNotebook = Console.ReadLine()!;
+
+        Console.WriteLine("Modelo: ");
         string modeloNotebook = Console.ReadLine()!;
+
+        Console.WriteLine("Condição de uso: ");
+        string situacaoNotebook = Console.ReadLine()!;
 
         Console.WriteLine("Digite o processador do notebook:");
         string processadorNotebook = Console.ReadLine()!;
@@ -19,7 +31,7 @@ public class CadastroNotebook
         Console.WriteLine("Digite o armazenamento do notebook:");
         string armazenamentoNotebook = Console.ReadLine()!;
 
-        Notebooks notebook = new Notebooks(modeloNotebook, processadorNotebook, memoriaRamNotebook, armazenamentoNotebook);
+        Notebooks notebook = new Notebooks(idNotebook, patrimonioNotebook, fabricanteNotebook, modeloNotebook, situacaoNotebook, processadorNotebook, memoriaRamNotebook, armazenamentoNotebook);
 
         listaDeNotebooks.Add(notebook);
         Console.WriteLine("Notebook cadastro com sucesso!");
@@ -30,7 +42,8 @@ public class CadastroNotebook
     {
         foreach (var notebook in listaDeNotebooks)
         {
-            Console.WriteLine($"Id do notebook: {notebook.Modelo}");
+            Console.WriteLine($"---- Exibindo informações do notebook ----");
+            Console.WriteLine($"Id do notebook: {notebook.IdAtivo}");
             Console.WriteLine($"Processador do notebook: {notebook.Processador}");
             Console.WriteLine($"Memória do notebook: {notebook.Memoria}");
             Console.WriteLine($"Armazenamento do notebook: {notebook.Armazenamento}");

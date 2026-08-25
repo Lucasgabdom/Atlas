@@ -2,12 +2,13 @@
 void telaInicial(){
     Console.WriteLine("---- Seja Bem-vindo ao Atlas ----");
 
-    Console.WriteLine("1 - Cadastrar Notebook");
-    Console.WriteLine("2 - Cadastrar Celular");
-    Console.WriteLine("3 - Cadastrar Impressora");
-    Console.WriteLine("4 - Cadastrar Colaborador");
-    Console.WriteLine("5 - Para exibir notebooks cadastrados.");
-    Console.WriteLine("6 - Sair");
+    Console.WriteLine("1 - Cadastrar colaborador");
+    Console.WriteLine("2 - Cadastrar notebook");
+    Console.WriteLine("3 - Cadastrar celular");
+    Console.WriteLine("4 - Cadastrar impressora");
+    Console.WriteLine("5 - Exibir lista de colaboradores.");
+    Console.WriteLine("6 - Exibir lista de notebooks");
+    Console.WriteLine("7 - Sair");
 
 }
 
@@ -25,26 +26,30 @@ while (executando)
     switch (Console.ReadLine())
     {
         case "1":
-            notebooks.CadastrarNotebook();
-            break;
-
-        case "2":
-            cadastroCelular.CadastrarCelular();
-            break;
-
-        case "3":
-            cadastroImpressora.CadastroDeImpressoras();
-            break;
-
-        case "4":
             cadastroDeColaboradores.CadastroDeColaboradores();
             break;
 
+        case "2":
+            notebooks.CadastrarNotebook();
+            break;
+
+        case "3":
+            cadastroCelular.CadastrarCelular();
+            break;
+
+        case "4":
+            cadastroImpressora.CadastroDeImpressoras();
+            break;
+
         case "5":
-            notebooks.ExibindoNotebooks();
+            cadastroDeColaboradores.ExibirColaborador();
             break;
 
         case "6":
+            notebooks.ExibindoNotebooks();
+            break;
+
+        case "7":
             Console.WriteLine("Saindo!");
             executando = false;
             break;

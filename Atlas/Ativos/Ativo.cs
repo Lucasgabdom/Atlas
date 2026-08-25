@@ -1,20 +1,20 @@
-﻿public class IAtivos
+﻿using System.Security.Cryptography.X509Certificates;
+
+public class Ativo
 {
-    public string Nome { get; set; }
-    public string Tipo { get; set; }
+    public int IdAtivo {  get; set; }
+    public string Patrimonio { get; set; }
+    public string Fabricante { get; set; }
+    public string Modelo { get; set; }
+    public string Situacao { get; set; }
 
-    public IAtivos(string nome, string tipo)
+    public Ativo(int idAtivo, string patrimonio, string fabricante, string modelo, string situacao)
     {
-        Nome = nome;
-        Tipo = tipo;
+        IdAtivo = idAtivo;
+        Patrimonio = patrimonio;
+        Fabricante = fabricante;
+        Modelo = modelo;
+        Situacao = situacao;
+
     }
-
-    public void CadastrarAtivo()
-    {
-        Console.WriteLine($"\n---- Cadastrando Ativo de TI ----");
-        Console.WriteLine($"Nome: {Nome}");
-        Console.WriteLine($"Tipo: {Tipo}");
-    }
-
-
 }
