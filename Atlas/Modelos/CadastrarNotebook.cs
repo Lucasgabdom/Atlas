@@ -1,4 +1,7 @@
-﻿public class CadastroNotebook
+﻿using System.Security.Cryptography.X509Certificates;
+using System.Text.Json;
+
+public class CadastroNotebook
 {
     List<Notebooks> listaDeNotebooks = new List<Notebooks>();
 
@@ -22,4 +25,25 @@
         Console.WriteLine("Notebook cadastro com sucesso!");
 
     }
+
+    public void ExibindoNotebooks()
+    {
+        foreach (var notebook in listaDeNotebooks)
+        {
+            Console.WriteLine($"Id do notebook: {notebook.Modelo}");
+            Console.WriteLine($"Processador do notebook: {notebook.Processador}");
+            Console.WriteLine($"Memória do notebook: {notebook.Memoria}");
+            Console.WriteLine($"Armazenamento do notebook: {notebook.Armazenamento}");
+        }
+
+    }
+
+    public void GerarJson()
+    {
+        string criandoArquivo = JsonSerializer.Serialize(listaDeNotebooks);
+        string nomeDoAquivo = "notebooks.json";
+
+        File.WriteAllText(nomeDoAquivo, criandoArquivo);
+    }
+
 }
