@@ -15,14 +15,4 @@
         Cargo = cargo;
     }
 
-
-    public void ExibirInformacoes()
-    {
-        Console.WriteLine($"\n---- Exibindo Informações do Colaborador ----");
-        Console.WriteLine($"ID: {Id}");
-        Console.WriteLine($"Nome: {Nome}");
-        Console.WriteLine($"Email: {Email}");
-        Console.WriteLine($"Telefone: {Telefone}");
-        Console.WriteLine($"Cargo: {Cargo}");
-    }
 }
