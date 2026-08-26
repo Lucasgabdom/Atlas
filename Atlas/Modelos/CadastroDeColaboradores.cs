@@ -10,7 +10,7 @@
         bool idJaExiste = listaDeColaboradores.Any(c => c.Id == idColaborador);
 
         if (idJaExiste) {
-            Console.WriteLine("Colaborador já existe!");
+            Console.WriteLine("Colaborador já foi cadastrado!");
             return; 
         }
 
