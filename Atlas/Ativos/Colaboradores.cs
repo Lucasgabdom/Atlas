@@ -6,6 +6,8 @@
     public string Telefone { get; set; }
     public string Cargo { get; set; }
 
+    public List<int> Ativos { get; set; }
+
     public Colaborador(string id, string nome, string email, string telefone, string cargo)
     {
         Id = id;
@@ -13,6 +15,8 @@
         Email = email;
         Telefone = telefone;
         Cargo = cargo;
+
+        Ativos = new List<int>();
     }
 
 }
