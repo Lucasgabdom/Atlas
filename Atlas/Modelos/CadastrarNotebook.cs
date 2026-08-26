@@ -5,6 +5,11 @@ using System.Text.Json;
 public class CadastroNotebook
 {
     List<Notebooks> listaDeNotebooks = new List<Notebooks>();
+    private List<Colaborador> listaDeColaboradores;
+    public CadastroNotebook(List<Colaborador> colaboradores)
+    {
+        listaDeColaboradores = colaboradores;
+    }
 
     public void CadastrarNotebook()
     {
@@ -39,9 +44,27 @@ public class CadastroNotebook
         Console.WriteLine("Digite o armazenamento do notebook:");
         string armazenamentoNotebook = Console.ReadLine()!;
 
+        Console.WriteLine("Qual o id do colaborador que ira receber esse produto: ");
+        string idColaboradorNotebook = Console.ReadLine()!;
+
+        Colaborador? colaborador = listaDeColaboradores.FirstOrDefault(c => c.Id == idColaboradorNotebook);
+        if (colaborador == null)
+        {
+            Console.WriteLine("Colaborador não encontrado.");
+            return;
+        }
+
         Notebooks notebook = new Notebooks(idNotebook, patrimonioNotebook, fabricanteNotebook, modeloNotebook, situacaoNotebook, processadorNotebook, memoriaRamNotebook, armazenamentoNotebook);
 
         listaDeNotebooks.Add(notebook);
+
+        if (colaborador == null)
+        {
+            Console.WriteLine("Colaborador não encontrado!");
+            return;
+        }
+
+        colaborador.Ativos.Add(idNotebook);
         Console.WriteLine("Notebook cadastro com sucesso!");
 
     }
