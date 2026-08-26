@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
 
 public class CadastroNotebook
@@ -9,6 +10,13 @@ public class CadastroNotebook
     {
         Console.WriteLine("ID do Ativo: ");
         int idNotebook = int.Parse(Console.ReadLine()!);
+
+        bool idJaExiste = listaDeNotebooks.Any( c => c.IdAtivo == idNotebook );
+
+        if (idJaExiste) {
+            Console.WriteLine("Notebook já foi cadastrado.");
+            return;
+        }
 
         Console.WriteLine("Patrimônio: ");
         string patrimonioNotebook = Console.ReadLine()!;
