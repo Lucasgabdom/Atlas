@@ -1,21 +1,12 @@
-﻿public class Celulares
+﻿public class Celulares : Ativo
 {
-    public string Modelo { get; set; }
+
     public string MemoriaRam { get; set; }
     public string Armazenamento { get; set; }
 
-    public Celulares(string modelo, string memoriaRam, string armazenamento)
+    public Celulares(int idAtivo, string patrimonio, string fabricante, string modelo, string situacao, string memoriaRam, string armazenamento) : base(idAtivo, patrimonio, fabricante, modelo, situacao)
     {
-        Modelo = modelo;
-        MemoriaRam = memoriaRam;
+        MemoriaRam = memoriaRam; 
         Armazenamento = armazenamento;
-    }
-
-    public void CadastrarAtivo()
-    {
-        Console.WriteLine($"\n---- Cadastrando Ativo de TI ----");
-        Console.WriteLine($"Modelo: {Modelo}");
-        Console.WriteLine($"Memória RAM: {MemoriaRam}");
-        Console.WriteLine($"Armazenamento: {Armazenamento}");
     }
 }

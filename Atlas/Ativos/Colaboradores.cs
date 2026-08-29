@@ -6,6 +6,8 @@
     public string Telefone { get; set; }
     public string Cargo { get; set; }
 
+    public List<int> Ativos { get; set; }
+
     public Colaborador(string id, string nome, string email, string telefone, string cargo)
     {
         Id = id;
@@ -13,16 +15,8 @@
         Email = email;
         Telefone = telefone;
         Cargo = cargo;
+
+        Ativos = new List<int>();
     }
 
-
-    public void ExibirInformacoes()
-    {
-        Console.WriteLine($"\n---- Exibindo Informações do Colaborador ----");
-        Console.WriteLine($"ID: {Id}");
-        Console.WriteLine($"Nome: {Nome}");
-        Console.WriteLine($"Email: {Email}");
-        Console.WriteLine($"Telefone: {Telefone}");
-        Console.WriteLine($"Cargo: {Cargo}");
-    }
 }

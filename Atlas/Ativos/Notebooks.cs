@@ -1,26 +1,16 @@
 ﻿using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 
-public class Notebooks
+public class Notebooks : Ativo
 {
-    public string Modelo { get; set; }
     public string Processador { get; set; }
     public string Memoria { get; set; }
     public string Armazenamento { get; set; }
 
-    public Notebooks (string modelo, string processador, string memoria, string armazenamento)
+    public Notebooks (int idAtivo,string patrimonio, string fabricante, string modelo, string situacao, string processador, string memoria, string armazenamento) : base(idAtivo, patrimonio, fabricante, modelo, situacao)
     {
-        Modelo = modelo;
         Processador = processador;
         Memoria = memoria;
         Armazenamento = armazenamento;
-    }
-
-    public void ExibirInformacoes()
-    {
-        Console.WriteLine($"\n---- Exibindo Informações do Ativo de TI ----");
-        Console.WriteLine($"Modelo: {Modelo}");
-        Console.WriteLine($"Processador: {Processador}");
-        Console.WriteLine($"Memória: {Memoria}");
-        Console.WriteLine($"Armazenamento: {Armazenamento}");
     }
 }
