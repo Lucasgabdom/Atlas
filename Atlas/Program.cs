@@ -16,10 +16,12 @@ telaInicial();
 
 bool executando = true;
 
-CadastroNotebook notebooks = new CadastroNotebook();
+DadosAtlas dadosAtlas = new DadosAtlas();
+
 CadastroCelular cadastroCelular = new CadastroCelular();
 CadastroImpressora cadastroImpressora = new CadastroImpressora();
-CadastroColaboradores cadastroDeColaboradores = new CadastroColaboradores();
+CadastroColaboradores cadastroDeColaboradores = new CadastroColaboradores(dadosAtlas);
+CadastroNotebook notebooks = new CadastroNotebook(dadosAtlas);
 
 while (executando)
 {
