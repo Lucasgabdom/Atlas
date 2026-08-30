@@ -45,7 +45,7 @@ public class CadastroNotebook
         Console.WriteLine("Digite o armazenamento do notebook:");
         string armazenamentoNotebook = Console.ReadLine()!;
 
-        Console.WriteLine("Qual o id do colaborador que ira receber esse produto: ");
+        Console.WriteLine("Qual o id do colaborador que ira receber: ");
         string idColaboradorNotebook = Console.ReadLine()!;
 
         Colaborador? colaborador = dadosAtlas.listaDeColaboradores.FirstOrDefault(c => c.Id == idColaboradorNotebook);
@@ -78,7 +78,7 @@ public class CadastroNotebook
             Console.WriteLine($"Processador do notebook: {notebook.Processador}");
             Console.WriteLine($"Memória do notebook: {notebook.Memoria}");
             Console.WriteLine($"Armazenamento do notebook: {notebook.Armazenamento}");
-            Console.WriteLine($"Notebook está sobre dominio de qual colaborador: {notebook.IdAtivo}");
+            Console.WriteLine($"Notebook está sobre dominio do colaborador de ID: {notebook.IdAtivo}");
         }
 
     }

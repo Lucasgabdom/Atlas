@@ -18,8 +18,8 @@ bool executando = true;
 
 DadosAtlas dadosAtlas = new DadosAtlas();
 
-CadastroCelular cadastroCelular = new CadastroCelular();
-CadastroImpressora cadastroImpressora = new CadastroImpressora();
+CadastroCelular cadastroCelular = new CadastroCelular(dadosAtlas);
+CadastroImpressora cadastroImpressora = new CadastroImpressora(dadosAtlas);
 CadastroColaboradores cadastroDeColaboradores = new CadastroColaboradores(dadosAtlas);
 CadastroNotebook notebooks = new CadastroNotebook(dadosAtlas);
 
