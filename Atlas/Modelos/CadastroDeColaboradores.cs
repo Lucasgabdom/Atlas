@@ -1,13 +1,19 @@
 ﻿public class CadastroColaboradores
 {
-    List<Colaborador> listaDeColaboradores = new List<Colaborador>();
+    public DadosAtlas dadosAtlas;
+
+    public CadastroColaboradores(DadosAtlas dados)
+    {
+        dadosAtlas = dados;
+    }
+
 
     public void CadastroDeColaboradores()
     {
         Console.WriteLine("Digite o id do colaborador:");
         string idColaborador = Console.ReadLine()!;
 
-        bool idJaExiste = listaDeColaboradores.Any(c => c.Id == idColaborador);
+        bool idJaExiste = dadosAtlas.listaDeColaboradores.Any(c => c.Id == idColaborador);
 
         if (idJaExiste) {
             Console.WriteLine("Colaborador já foi cadastrado!");
@@ -28,7 +34,7 @@
 
         Colaborador colaboradores = new Colaborador(idColaborador, nomeColaborador, emailColaborador, telefoneColaborador, cargoColaborador);
 
-        listaDeColaboradores.Add(colaboradores);
+        dadosAtlas.listaDeColaboradores.Add(colaboradores);
         Console.WriteLine("Colaborador adicionado!");
 
         
@@ -36,7 +42,7 @@
 
     public void ExibirColaborador()
     {
-        foreach(var colaborador in listaDeColaboradores)
+        foreach(var colaborador in dadosAtlas.listaDeColaboradores)
         {
             Console.WriteLine("\n---- Exibindo informações ----");
             Console.WriteLine($"Id do colaborador: {colaborador.Id}");

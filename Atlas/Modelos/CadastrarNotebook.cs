@@ -4,19 +4,20 @@ using System.Text.Json;
 
 public class CadastroNotebook
 {
-    List<Notebooks> listaDeNotebooks = new List<Notebooks>();
-    private List<Colaborador> listaDeColaboradores;
-    public CadastroNotebook(List<Colaborador> colaboradores)
+    public DadosAtlas dadosAtlas;
+
+    public CadastroNotebook(DadosAtlas dados)
     {
-        listaDeColaboradores = colaboradores;
+        dadosAtlas = dados;
     }
+
 
     public void CadastrarNotebook()
     {
         Console.WriteLine("ID do Ativo: ");
         int idNotebook = int.Parse(Console.ReadLine()!);
 
-        bool idJaExiste = listaDeNotebooks.Any( c => c.IdAtivo == idNotebook );
+        bool idJaExiste = dadosAtlas.listaDeNotebooks.Any(c => c.IdAtivo == idNotebook);
 
         if (idJaExiste) {
             Console.WriteLine("Notebook já foi cadastrado.");
@@ -44,10 +45,10 @@ public class CadastroNotebook
         Console.WriteLine("Digite o armazenamento do notebook:");
         string armazenamentoNotebook = Console.ReadLine()!;
 
-        Console.WriteLine("Qual o id do colaborador que ira receber esse produto: ");
+        Console.WriteLine("Qual o id do colaborador que ira receber: ");
         string idColaboradorNotebook = Console.ReadLine()!;
 
-        Colaborador? colaborador = listaDeColaboradores.FirstOrDefault(c => c.Id == idColaboradorNotebook);
+        Colaborador? colaborador = dadosAtlas.listaDeColaboradores.FirstOrDefault(c => c.Id == idColaboradorNotebook);
         if (colaborador == null)
         {
             Console.WriteLine("Colaborador não encontrado.");
@@ -56,35 +57,35 @@ public class CadastroNotebook
 
         Notebooks notebook = new Notebooks(idNotebook, patrimonioNotebook, fabricanteNotebook, modeloNotebook, situacaoNotebook, processadorNotebook, memoriaRamNotebook, armazenamentoNotebook);
 
-        listaDeNotebooks.Add(notebook);
-
-        if (colaborador == null)
-        {
-            Console.WriteLine("Colaborador não encontrado!");
-            return;
-        }
+        dadosAtlas.listaDeNotebooks.Add(notebook);
 
         colaborador.Ativos.Add(idNotebook);
-        Console.WriteLine("Notebook cadastro com sucesso!");
+        Console.WriteLine($"Notebook cadastro com sucesso e direcionado para o usuário {colaborador.Nome}");
 
     }
 
     public void ExibindoNotebooks()
     {
-        foreach (var notebook in listaDeNotebooks)
+
+  
+
+        foreach (var notebook in dadosAtlas.listaDeNotebooks)
         {
+            Colaborador? colaborador = dadosAtlas.listaDeColaboradores.FirstOrDefault(c => c.Ativos.Contains(notebook.IdAtivo));
+
             Console.WriteLine($"---- Exibindo informações do notebook ----");
             Console.WriteLine($"Id do notebook: {notebook.IdAtivo}");
             Console.WriteLine($"Processador do notebook: {notebook.Processador}");
             Console.WriteLine($"Memória do notebook: {notebook.Memoria}");
             Console.WriteLine($"Armazenamento do notebook: {notebook.Armazenamento}");
+            Console.WriteLine($"Notebook está sobre dominio do colaborador de ID: {notebook.IdAtivo}");
         }
 
     }
 
     public void GerarJson()
     {
-        string criandoArquivo = JsonSerializer.Serialize(listaDeNotebooks);
+        string criandoArquivo = JsonSerializer.Serialize(dadosAtlas.listaDeNotebooks);
         string nomeDoAquivo = "notebooks.json";
 
         File.WriteAllText(nomeDoAquivo, criandoArquivo);
